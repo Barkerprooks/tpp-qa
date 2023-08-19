@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" href="css/styles.css" />
+        <title>TPP QA</title>
+    </head>
+    <body>
+        <div id="iframe-modal">
+            <button id="close-iframe">close</button>
+            <div id="iframe"></div>
+        </div>
+        <div id="screen-dim"></div>
+        
+        <div id="heading">
+            <h3>Triple Play Pay · Q<small>&amp;</small>A</h3>
+            <h5>Automated Sandbox Testing</h5>
+        </div>
+
+        <div class="section">
+            <h4 class="section-header">iframe</h4>
+            <div>
+                <button id="test-iframe-charge" class="section-button">CHARGE</button>
+                <button id="test-iframe-subscription" class="section-button">SUBSCRIPTION</button>
+            </div>
+        </div>
+        
+        <div class="section top-section">
+            <h4 class="section-header">api</h4>
+            <button id="test-all" class="section-button">RUN ALL TESTS</button>
+        </div>
+
+        <script src="https://sandbox.tripleplaypay.com/static/js/triple.js"></script>
+        <script src="js/test.js"></script>
+        <script src="js/main.js"></script>
+    </body>
+</html>
