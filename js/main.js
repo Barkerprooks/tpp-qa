@@ -99,7 +99,9 @@ document.addEventListener("DOMContentLoaded", () => {
         const triple = new Triple("testapikey");
         triple.generatePaymentForm({
             containerSelector: "#iframe",
-            amount: "3.33"
+            amount: "3.33",
+            onSuccess: (message) => alert(JSON.stringify(message)),
+            onError: (error) => alert(JSON.stringify(error))
         });
         document.querySelector("#iframe-modal").style.display = "block";
         document.querySelector("#screen-dim").style.display = "block";
@@ -114,6 +116,8 @@ document.addEventListener("DOMContentLoaded", () => {
             interval: "daily",
             frequency: 2,
             amount: "3.33",
+            onSuccess: (message) => alert(JSON.stringify(message)),
+            onError: (error) => alert(JSON.stringify(error))
         });
         document.querySelector("#iframe-modal").style.display = "block";
         document.querySelector("#screen-dim").style.display = "block";
