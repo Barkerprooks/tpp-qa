@@ -33,7 +33,7 @@ const renderObject = (element, object) => {
             liTitle.onclick = () => li.querySelector("ul")?.classList.toggle("hidden-object");
             li.querySelector("ul")?.classList.add("hidden-object");
         } else {
-            li.innerHTML = `<b>${key}</b>: <i style="color: grey">${object[key] === null || object[key] === undefined ? '-' : object[key]}</i>`;
+            li.innerText = `${key}: ${(object[key] === null || object[key] === undefined) ? '-' : object[key]}`;
         }
     });
     element.append(ul);
@@ -55,10 +55,15 @@ const testAPI = async (requests, testResultElement) => {
             });
         }
         
-        response = await fetch(`https://sandbox.tripleplaypay.com/api/${route}?apikey=testapikey`, {
+        const params = { ...(method === 'GET' ? meta : {}), apikey: 'testapikey' };
+        const urlParams = Object.keys(params).map(key => `${key}=${params[key]}`).join('&');
+
+        console.log(urlParams);
+
+        response = await fetch(`https://sandbox.tripleplaypay.com/api/${route}?${urlParams}`, {
             headers: { "Content-Type": "application/json", "Accept": "application/json" },
             method: method,
-            body: JSON.stringify(meta)
+            body: method === 'POST' ? JSON.stringify(meta) : null
         });
 
         data = await response.json();
